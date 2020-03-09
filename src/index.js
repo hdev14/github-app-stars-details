@@ -1,12 +1,7 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
+
+import './configs/ReactotronConfig';
 
 const App: () => React$Node = () => {
   return (
@@ -17,6 +12,8 @@ const App: () => React$Node = () => {
     </>
   );
 };
+
+console.tron.log('DEBUG');
 
 const styles = StyleSheet.create({
   container: {
