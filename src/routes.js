@@ -21,8 +21,8 @@ export default function Routes() {
           },
           headerTintColor: '#f2f2f2',
         }}>
-        <Stack.Screen name="Main" component={Main} />
-        <Stack.Screen name="User" component={User} />
+        <Stack.Screen name="Usuários" component={Main} />
+        <Stack.Screen name="Usuário" component={User} />
       </Stack.Navigator>
     </NavigationContainer>
   );
