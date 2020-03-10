@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {Text} from 'react-native';
+
+// Styles
+import Container from '../../styles/components/Container';
 
 export default class Main extends Component {
   render() {
-    return <View />;
+    return (
+      <Container>
+        <Text>Main</Text>
+      </Container>
+    );
   }
 }
