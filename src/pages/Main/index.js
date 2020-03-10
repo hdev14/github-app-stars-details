@@ -7,15 +7,15 @@ import api from '../../services/api';
 
 // Styles
 import Container from '../../styles/components/Container';
+import List from '../../styles/components/List';
+import Avatar from '../../styles/components/Avatar';
+import Name from '../../styles/components/Name';
+import Bio from '../../styles/components/Bio';
 import {
   Form,
   Input,
   SubmitButton,
-  List,
   User,
-  Avatar,
-  Name,
-  Bio,
   ProfileButton,
   ProfileButtonText,
 } from './styles';
@@ -102,7 +102,7 @@ export default class Main extends Component {
           keyExtractor={user => user.login}
           renderItem={({item}) => (
             <User>
-              <Avatar source={{uri: item.avatar}} />
+              <Avatar source={{uri: item.avatar}} size />
               <Name>{item.name}</Name>
               <Bio>{item.bio}</Bio>
 
