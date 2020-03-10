@@ -1,25 +1,16 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StatusBar} from 'react-native';
 
 import './configs/ReactotronConfig';
 
-const App: () => React$Node = () => {
+import Routes from './routes';
+
+export default function App() {
   return (
     <>
-      <View style={styles.container}>
-        <Text>Fisrt App</Text>
-      </View>
+      <StatusBar barStyle="light-content" backgroundColor="#333" />
+      <Routes />
     </>
   );
-};
-
-console.tron.log('DEBUG');
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignContent: 'center',
-  },
-});
-
-export default App;
+}
