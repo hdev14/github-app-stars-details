@@ -26,6 +26,7 @@ export const SubmitButton = styled(RectButton)`
   justify-content: center;
   align-items: center;
   padding: 10px;
+  opacity: ${props => (props.loading ? 0.7 : 1)};
 `;
 
 export const List = styled.FlatList.attrs({
