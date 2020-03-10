@@ -54,16 +54,6 @@ export const Name = styled.Text`
   text-align: center;
 `;
 
-export const Bio = styled.Text.attrs({
-  numberOfLine: 2,
-})`
-  margin-top: 5px;
-  font-size: 14px;
-  color: #999;
-  line-height: 16px;
-  text-align: center;
-`;
-
 export const ProfileButton = styled(RectButton)`
   align-self: stretch;
   background-color: #333;
