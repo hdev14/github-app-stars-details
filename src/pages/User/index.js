@@ -78,6 +78,11 @@ export default class User extends Component {
     });
   };
 
+  viewStarred = (html_url, name) => {
+    const {navigation} = this.props;
+    navigation.push('Starred', {html_url, name});
+  };
+
   getPages = link => {
     console.tron.log(link);
     const [linkNextPage, linkLastPage] = link.split(',');
@@ -88,6 +93,21 @@ export default class User extends Component {
     return {next, last};
   };
 
+  renderItem = ({item}) => {
+    return (
+      <Starred onPress={() => this.viewStarred(item.html_url, item.name)}>
+        <Avatar
+          source={{uri: item.owner.avatar_url}}
+          size={{height: '42px', width: '42px'}}
+          borderRadius="21px"
+        />
+        <Info>
+          <Title>{item.name}</Title>
+          <Author>{item.owner.login}</Author>
+        </Info>
+      </Starred>
+    );
+  };
   render() {
     const {user} = this.props.route.params;
     const {stars, loading, refreshing} = this.state;
@@ -113,19 +133,7 @@ export default class User extends Component {
             refreshing={refreshing}
             onRefresh={this.refreshList}
             keyExtractor={star => String(star.id)}
-            renderItem={({item}) => (
-              <Starred>
-                <Avatar
-                  source={{uri: item.owner.avatar_url}}
-                  size={{height: '42px', width: '42px'}}
-                  borderRadius="21px"
-                />
-                <Info>
-                  <Title>{item.name}</Title>
-                  <Author>{item.owner.login}</Author>
-                </Info>
-              </Starred>
-            )}
+            renderItem={this.renderItem}
           />
         )}
       </Container>
