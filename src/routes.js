@@ -5,6 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 // Components
 import Main from './pages/Main';
 import User from './pages/User';
+import Starred from './pages/Starred';
 
 const Stack = createStackNavigator();
 
@@ -30,6 +31,11 @@ export default function Routes() {
           name="User"
           component={User}
           options={User.navigationOptions}
+        />
+        <Stack.Screen
+          name="Starred"
+          component={Starred}
+          options={Starred.navigationOptions}
         />
       </Stack.Navigator>
     </NavigationContainer>

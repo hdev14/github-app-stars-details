@@ -7,7 +7,7 @@ export const Header = styled.View`
   align-items: center;
 `;
 
-export const Starred = styled.View`
+export const Starred = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   padding: 5px;
