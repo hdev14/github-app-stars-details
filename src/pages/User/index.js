@@ -20,6 +20,7 @@ export default class User extends Component {
     stars: [],
     login: '',
     loading: false,
+    refreshing: false,
     page: {
       next: 1,
       least: 1,
@@ -63,7 +64,21 @@ export default class User extends Component {
     });
   };
 
-  getPages(link) {
+  refreshList = async () => {
+    const {login} = this.state;
+
+    this.setState({refreshing: true});
+
+    const response = await api.get(`/users/${login}/starred?per_page=5`);
+
+    this.setState({
+      stars: response.data,
+      page: this.getPages(response.headers.link),
+      refreshing: false,
+    });
+  };
+
+  getPages = link => {
     console.tron.log(link);
     const [linkNextPage, linkLastPage] = link.split(',');
     const regexpPage = RegExp(/&page=(\d+).*$/);
@@ -71,12 +86,11 @@ export default class User extends Component {
     const last = Number(linkLastPage.match(regexpPage)[1]);
 
     return {next, last};
-  }
+  };
 
   render() {
     const {user} = this.props.route.params;
-    const {stars, loading} = this.state;
-
+    const {stars, loading, refreshing} = this.state;
     return (
       <Container>
         <Header>
@@ -96,6 +110,8 @@ export default class User extends Component {
             data={stars}
             onEndReachedThreshold={0.2}
             onEndReached={this.loadMore}
+            refreshing={refreshing}
+            onRefresh={this.refreshList}
             keyExtractor={star => String(star.id)}
             renderItem={({item}) => (
               <Starred>
