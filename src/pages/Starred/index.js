@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {ActivityIndicator} from 'react-native';
 import {WebView} from 'react-native-webview';
 
 export default class Starred extends Component {

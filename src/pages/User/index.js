@@ -84,7 +84,6 @@ export default class User extends Component {
   };
 
   getPages = link => {
-    console.tron.log(link);
     const [linkNextPage, linkLastPage] = link.split(',');
     const regexpPage = RegExp(/&page=(\d+).*$/);
     const next = Number(linkNextPage.match(regexpPage)[1]);
@@ -108,9 +107,11 @@ export default class User extends Component {
       </Starred>
     );
   };
+
   render() {
     const {user} = this.props.route.params;
     const {stars, loading, refreshing} = this.state;
+
     return (
       <Container>
         <Header>
