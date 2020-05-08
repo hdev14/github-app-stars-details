@@ -3,9 +3,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 // Components
-import Main from './pages/Main';
-import User from './pages/User';
-import Starred from './pages/Starred';
+import Main from './screens/Main';
+import User from './screens/User';
+import Starred from './screens/Starred';
 
 const Stack = createStackNavigator();
 
